@@ -1,0 +1,57 @@
+body {
+  padding: 1%;
+  background-color:#f4f4d7;
+  overflow-x: hidden;
+}
+ 
+.card{
+ 
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 4px;
+  padding: 2px;
+  }
+  p-autocomplete .p-autocomplete-input {
+      
+    color: rgb(12, 12, 12);  
+    border: 1px solid #000000;  
+   
+    width: 350px !important;
+    height: 35px !important;
+    margin-top: 2px !important;
+  }
+  
+ 
+  p-autocomplete .p-autocomplete-item {
+    background-color: #333;  
+    color: white; 
+  }
+   
+  p-autocomplete .p-autocomplete-item:hover {
+    background-color: #444;  
+  }
+
+   .parent {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+
+.loader {
+  position: relative;
+  background: white; 
+  padding: 20px;    
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  text-align: center;  
+}
+.blur-background {
+  filter: blur(3px);  
+  pointer-events: none;  
+    transition: filter 0.3s ease;
+}

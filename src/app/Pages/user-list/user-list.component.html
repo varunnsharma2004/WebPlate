@@ -1,0 +1,52 @@
+ 
+    <div class="card"  >
+    <div class="row mt-2">
+        <div class="col-md-12 text-end">
+           <input type="text" name="" style="    margin-right: 10px;
+           " placeholder="Search User"  id=""   [(ngModel)]="user">
+                
+            <button class=" bt-sm" style="border-radius: 8px;" (click)="getUserName()">Search</button>
+            
+        </div>
+    </div>
+        <p-table class="mt-4"
+            [value]="items"
+            [paginator]="true"
+            [rows]="5"
+            [tableStyle]="{ 'min-width': '50rem' }"
+            [rowsPerPageOptions]="[5, 10, 20]"
+            [class.black-theme]="true"
+
+        >
+            <ng-template #header>
+                <tr>
+                    <th  >User Name</th>
+                    <th  >First Name </th>
+                    <th  >Last Name</th>
+                    <th  >Email</th>
+                    <th  >Password </th>
+                    <th  >Mobile Number</th>
+                    <th  >Status</th>
+                    <th  >Action</th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-customer>
+                <tr>
+                    <td>{{ customer.username }}</td>
+                    <td>{{ customer.firstName?customer.firstName:"NA"  }}</td>
+                    <td>{{ customer.lastName?customer.lastName:"NA" }}</td>
+                    <td>{{ customer.email ?customer.email:"NA" }}</td>
+                    <td>{{ customer.password?customer.password:"NA" }}</td>
+                    <td>{{ customer.phone?customer.phone:"NA"  }}</td>
+                    <td>
+                        <p-message *ngIf="customer.userStatus == 1" severity="success" text="Active"></p-message>
+                        <p-message *ngIf="customer.userStatus != 1" severity="error" text="Inactive"></p-message>
+                      </td>
+                    <td> <i class="pi pi-file-edit" style="font-size: 1rem;cursor: pointer;" (click)="UpdateUser(customer)"></i>
+                        <i class="pi pi-trash " style="font-size: 1rem ;cursor: pointer;margin-left: 10px;" (click)="deleteUser(customer.username)"></i>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+ 

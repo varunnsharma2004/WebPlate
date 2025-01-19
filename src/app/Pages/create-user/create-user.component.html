@@ -1,0 +1,61 @@
+@if(data.isLoading){
+ <app-loader Message="Process in Progress Please wait.."></app-loader>
+     }
+    @else{
+<form [formGroup]="userFrom" class="row">
+    <div class="col-md-12 mt-4">
+        <p-floatlabel variant="on">
+            <input pInputText formControlName="username" id="userName" autocomplete="off" />
+            <label for="userName">User Name</label>
+        </p-floatlabel>
+        <p-message class="mt-2" severity="error" *ngIf="userFrom.controls['username'].invalid &&userFrom.controls['username'].touched ">Enter User Name</p-message>
+    
+    </div>
+    <div class="col-md-12 mt-4">
+        <p-floatlabel variant="on">
+            <input pInputText id="firstName"  formControlName="firstName" autocomplete="off" />
+            <label for="firstName">First Name</label>
+        </p-floatlabel>
+        <p-message class="mt-2" severity="error" *ngIf="userFrom.controls['firstName'].invalid &&userFrom.controls['firstName'].touched ">Enter First Name</p-message>
+     </div>
+    <div class="col-md-12 mt-4">
+        <p-floatlabel variant="on">
+            <input pInputText id="lastName"  formControlName="lastName" autocomplete="off" />
+            <label for="lastName">Last Name</label>
+        </p-floatlabel>
+        <p-message class="mt-2" severity="error"  *ngIf="userFrom.controls['lastName'].invalid &&userFrom.controls['lastName'].touched ">Enter Last Name</p-message>
+         
+    </div>  
+      <div class="col-md-12 mt-4">
+        <p-floatlabel variant="on">
+            <input type="email" pInputText  formControlName="email" id="email" autocomplete="off" />
+            <label for="email">User Email</label>
+        </p-floatlabel>
+        <p-message class="mt-2" severity="error"   *ngIf="userFrom.controls['email'].invalid &&userFrom.controls['email'].touched ">Enter Valid Email Name</p-message>
+          
+    </div>
+    <div class="col-md-12 mt-4">
+        <p-floatlabel variant="on">
+            <input type="number" pInputText  formControlName="phone" id="number" autocomplete="off" />
+            <label for="number"> Mobile number</label>
+        </p-floatlabel>
+        <p-message class="mt-2" severity="error"   *ngIf="userFrom.controls['phone'].invalid &&userFrom.controls['phone'].touched ">Enter Valid Number</p-message>
+       
+    </div>
+    <div class="col-md-12 mt-4">
+        <p-floatlabel variant="on">
+            <input type="password" pInputText  formControlName="password" id="password" autocomplete="off" />
+            <label for="password">Password</label>
+        </p-floatlabel>
+        <p-message class="mt-2" severity="error"   *ngIf="userFrom.controls['password'].invalid &&userFrom.controls['password'].touched ">Enter Password</p-message>
+    </div>
+    <div class="col-md-12 mt-4">
+        <p-select   [options]="status" #val  formControlName="userStatus" optionLabel="status" optionValue="statusVal" placeholder="User Status" class="w-full md:w-56" />
+        <p-message class="mt-2" severity="error"   *ngIf="userFrom.controls['userStatus'].invalid &&userFrom.controls['userStatus'].touched ">Select Status</p-message>
+    </div>
+    <div class="col-md-12 mt-5  text-center">
+        <p-button  label="Success" *ngIf="!isUpdate"  [raised]="true" (click)="isNewUser()" [disabled]="userFrom.invalid" severity="success" />
+        <p-button  label="Update" *ngIf="isUpdate"  [raised]="true" (click)="isUserUpdate()"  [disabled]="userFrom.invalid" severity="success" />
+  
+    </div>
+</form>}
